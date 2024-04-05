@@ -19,3 +19,40 @@ img {
   height: 150px;
   object-fit: cover;
 }
+
+
+.movie-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(274px, 1fr));
+  height: 440px;
+  gap: 20px;
+  /* padding: 20px; */
+  margin: 30px;
+}
+
+
+
+  @media screen and (min-width: 768px) {
+    .movie-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .movie-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+  }
+ 
+
+
+
+.footer {
+  background-color: rgba(229, 229, 229, 1);
+  color: rgba(84, 84, 84, 1);
+  width: 1024px;
+  height: 77px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
