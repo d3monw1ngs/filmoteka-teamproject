@@ -6,19 +6,6 @@ const searchURL = BASE_URL + '/search/movie?' + API_KEY;
 const getGenres = BASE_URL + '/genre/movie/list' + API_KEY;
 
 
-const options = {
-  params: {
-    key: API_KEY,
-    query: '',
-    include_adult: false,
-    language: 'en-US',
-    primary_release_year: '',
-    page: 1,
-    region: '',
-    year: '',
-  },
-};
-
 //localStorage
 let currentMovieTitle, currentMovieID, queue, watched;
 JSON.parse(localStorage.getItem("movie-queue")) === null? queue = [] : queue = JSON.parse(localStorage.getItem("movie-queue"));
@@ -50,21 +37,11 @@ function openModal(movie) {
     movie.vote_average.toFixed(1) + '   /   ' + movie.vote_count;
   modalPopularity.textContent = movie.popularity.toFixed(1);
   modalOrigTitle.textContent = movie.original_title.toUpperCase();
-  modalGenre.textContent = movie.genre;
+  modalGenre.textContent = movie.genre_ids;
   modalOverview.textContent = movie.overview;
   modal.style.display = 'block';
-
-    modalPoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-    modalTitle.textContent = movie.title;
-    modalVote.textContent = movie.vote_average+'/'+movie.vote_count;
-    modalPopularity.textContent = movie.popularity;
-    modalOrigTitle.textContent = movie.original_title;
-    modalGenre.textContent = movie.genre_ids;
-    modalOverview.textContent = movie.overview;
-    modal.style.display = "block";
-    currentMovieID = movie.id;
-    currentMovieTitle = movie.original_title;
-
+  currentMovieID = movie.id;
+  currentMovieTitle = movie.original_title;
 }
 
 // function to close the modal
@@ -85,10 +62,10 @@ window.addEventListener('click', function (event) {
 const main = document.getElementById('main');
 const form = document.getElementById('search-form');
 const search = document.getElementById('search-input');
-const galleryEl = document.getElementById('gallery');
 const loader = document.querySelector('.loader-container');
 
 // PAGINATION
+
 
 getMovies(API_URL);
 
@@ -128,7 +105,13 @@ function getMovies(url) {
         loader.classList.toggle('is-hidden');
         main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
       }
-    });
+    })
+    .catch(error => {
+      console.error('Error fetching movies:', error);
+      main.classList.toggle('is-hidden');
+      loader.classList.toggle('is-hidden');
+      main.innerHTML = `<h1 class="no-results">Error fetching movies</h1>`;
+  });
 }
 
 function showMovies(data) {
@@ -246,8 +229,6 @@ addToQueuBtn.addEventListener('click', () => {
         queue.push(currentMovieID);
         localStorage.setItem('movie-queue', JSON.stringify(queue));
 })
-
-
 
 //Pressing escape to close modal
 document.body.addEventListener('keydown', event => {
