@@ -418,36 +418,10 @@ h3{
    
 }
 
-// .pagination-button {
-//     width: 40px;
-//     height: 40px;
-//     font-weight: bold;
-//     border: none;
-//     background: none;
-//     font-size: 12px;
-// }
-
-// .pagination-button:hover{
-//     background-color: rgba(255, 107, 8, 1);
-//     color: white;
-//     border-radius: 10%;
-//     transition: 450ms cubic-bezier(0.4, 0, 0.2, 1);
-//     cursor: pointer;
-
-
-.pagination-button {
-    width: 40px;
-    height: 40px;
-    font-weight: bold;
-    border: none;
-    background: none;
-    font-size: 12px;
-}
-
-.pagination-button:hover{
-    background-color: orangered;
+.vote-avg {
+    background-color: rgba(255, 107, 8, 1);
     color: white;
-    border-radius: 10%;
-    transition: 450ms cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
+    border-radius: 25%;
+    padding: 5px 15px;
+
 }
