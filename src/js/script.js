@@ -3,7 +3,7 @@ const API_KEY = 'api_key=b5e824a3d922f68ba211fcf6dbdcb6f5';
 const API_URL = BASE_URL + '/discover/movie?sort_by-popularity.desc&' + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?' + API_KEY;
-const getGenres = BASE_URL + '/genre/movie/list' + API_KEY;
+const getGenres = BASE_URL + '/genre/movie/list?' + API_KEY;
 
 
 //localStorage
@@ -28,6 +28,19 @@ const addToWatchedBtn = document.getElementById('addToWatchedBtn');
 const addToQueuBtn = document.getElementById('addToQueuBtn');
 const closeBtn = document.getElementsByClassName('close')[0];
 
+let genres; 
+
+fetch(getGenres)
+    .then(response => response.json())
+    .then(data => {
+        genres = data.genres;
+      getMovies(API_URL, genres); // Call getMovies with genres
+      showMovies(data, genres)
+    })
+    .catch(error => {
+        console.error('Error fetching genres:', error);
+    });
+
 // function to open the modal with movie details
 function openModal(movie) {
 
@@ -37,7 +50,14 @@ function openModal(movie) {
     movie.vote_average.toFixed(1) + '   /   ' + movie.vote_count;
   modalPopularity.textContent = movie.popularity.toFixed(1);
   modalOrigTitle.textContent = movie.original_title.toUpperCase();
-  modalGenre.textContent = movie.genre_ids;
+  // modalGenre.textContent = movie.genre_ids;
+
+  const movieGenres = movie.genre_ids.map(genreId => {
+    const genre = genres.find(genre => genre.id === genreId);
+    return genre ? genre.name : '';
+}).join(', ');
+
+modalGenre.textContent = movieGenres;
   modalOverview.textContent = movie.overview;
   modal.style.display = 'block';
   currentMovieID = movie.id;
@@ -69,6 +89,7 @@ const loader = document.querySelector('.loader-container');
 
 getMovies(API_URL);
 
+// let lastUrl;
 // DISPLAY MOVIE CARDS
 function getMovies(url) {
   lastUrl = url;
@@ -121,6 +142,16 @@ function showMovies(data) {
     const { title, poster_path, release_date, genre_ids } = movie;
     const movieEl = document.createElement('div');
     movieEl.classList.add('movie');
+
+    const movieGenres = genre_ids && Array.isArray(genres)
+            ? genre_ids.map(genreId => {
+                const genre = genres.find(genre => genre.id === genreId);
+                return genre ? genre.name : '';
+            }).join(', ')
+        : '';
+    
+        const releaseYear = release_date ? (new Date(release_date)).getFullYear() : '';
+
     movieEl.innerHTML = `
             <img src="${
               poster_path
@@ -132,8 +163,8 @@ function showMovies(data) {
             <div class="movie-info">
                 <h3>${title.toUpperCase()}</h3>
                 <div class="movie-details">
-                    <span id="genre" class="${genre_ids}">${genre_ids}</span> |
-                    <span id="release_date" class="${release_date}">${release_date.slice(
+                    <span id="genre">${movieGenres}</span> |
+                    <span id="release_date">${release_date.slice(
       0,
       4
     )}</span>
