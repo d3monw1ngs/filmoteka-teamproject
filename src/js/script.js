@@ -31,7 +31,7 @@ fetch(getGenres)
       showMovies(data, genres)
     })
     .catch(error => {
-        console.error('Error fetching genres:', error);
+        // console.error('Error fetching genres:', error);
     });
   // function to open the modal with movie details
   function openModal(movie) {
