@@ -68,7 +68,7 @@ const loader = document.querySelector('.loader-container');
 
 
 getMovies(API_URL);
-let lastUrl;
+
 // DISPLAY MOVIE CARDS
 function getMovies(url) {
   lastUrl = url;
