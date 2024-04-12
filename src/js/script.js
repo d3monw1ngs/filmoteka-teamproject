@@ -86,6 +86,7 @@ getMovies(API_URL);
 // DISPLAY MOVIE CARDS
 function getMovies(url) {
   lastUrl = url;
+  
   main.classList.toggle('is-hidden');
   loader.classList.toggle('is-hidden');
 
@@ -180,7 +181,7 @@ next.addEventListener('click', () => {
   }
 });
 
-function pageCall(page) {
+export function pageCall(page) {
   let urlSplit = lastUrl.split('?');
   let queryParams = urlSplit[1].split('&');
   let key = queryParams[queryParams.length - 1].split('=');
