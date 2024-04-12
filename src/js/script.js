@@ -233,9 +233,9 @@ function showMovies(data) {
                   });
       main.appendChild(movieEl);
     });
-  }
-
+  }}
 });
+
 
 // function for the next page
 next.addEventListener('click', () => {
@@ -244,7 +244,7 @@ next.addEventListener('click', () => {
   }
 });
 
-export function pageCall(page) {
+function pageCall(page) {
   let urlSplit = lastUrl.split('?');
   let queryParams = urlSplit[1].split('&');
   let key = queryParams[queryParams.length - 1].split('=');
@@ -304,7 +304,7 @@ addToQueuBtn.addEventListener('click', () => {
 document.body.addEventListener('keydown', event => {
   if (event.code === 'Escape') {
     closeModal();
-
+  }
   form.addEventListener('submit', e => {
     e.preventDefault();
     const searchTerm = search.value;
@@ -326,7 +326,7 @@ document.body.addEventListener('keydown', event => {
       pageCall(nextPage);
     }
   });
-  export function pageCall(page) {
+ function pageCall(page) {
     let urlSplit = lastUrl.split('?');
     let queryParams = urlSplit[1].split('&');
     let key = queryParams[queryParams.length - 1].split('=');
@@ -382,4 +382,5 @@ document.body.addEventListener('keydown', event => {
     if (event.code === 'Escape') {
       closeModal();
     }
+  })
   });
