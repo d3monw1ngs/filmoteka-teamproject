@@ -1,4 +1,4 @@
-import { BASE_URL, API_KEY, options } from "./api.js";
+// import { BASE_URL, API_KEY, options } from "./api.js";
 import { pageCall } from './script.js';
 
 const buttons = document.querySelectorAll('.pagination-button:not(#prev):not(#next)');
