@@ -81,27 +81,27 @@ fetch(getGenres)
         console.log(data.results);
         if (data.results.length !== 0) {
           showMovies(data.results);
-          currentPage = data.page;
-          nextPage = currentPage + 1;
-          prevPage = currentPage - 1;
-          totalPages = data.total_pages;
-          main.classList.toggle('is-hidden');
-          loader.classList.toggle('is-hidden');
-          current.innerText = currentPage;
-          if (currentPage <= 1) {
-            prev.classList.add('disabled');
-            next.classList.remove('disabled');
-          } else if (currentPage >= totalPages) {
-            prev.classList.remove('disabled');
-            next.classList.add('disabled');
-          } else {
-            prev.classList.remove('disabled');
-            next.classList.remove('disabled');
-          }
-        } else {
-          main.classList.toggle('is-hidden');
-          loader.classList.toggle('is-hidden');
-          main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
+          // currentPage = data.page;
+          // nextPage = currentPage + 1;
+          // prevPage = currentPage - 1;
+          // totalPages = data.total_pages;
+          // main.classList.toggle('is-hidden');
+          // loader.classList.toggle('is-hidden');
+          // current.innerText = currentPage;
+        //   if (currentPage <= 1) {
+        //     prev.classList.add('disabled');
+        //     next.classList.remove('disabled');
+        //   } else if (currentPage >= totalPages) {
+        //     prev.classList.remove('disabled');
+        //     next.classList.add('disabled');
+        //   } else {
+        //     prev.classList.remove('disabled');
+        //     next.classList.remove('disabled');
+        //   }
+        // } else {
+        //   main.classList.toggle('is-hidden');
+        //   loader.classList.toggle('is-hidden');
+        //   main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
         }
       });
   }
@@ -161,7 +161,7 @@ function showMovies(data) {
       pageCall(nextPage);
     }
   });
-  function pageCall(page) {
+  export function pageCall(page) {
     let urlSplit = lastUrl.split('?');
     let queryParams = urlSplit[1].split('&');
     let key = queryParams[queryParams.length - 1].split('=');
