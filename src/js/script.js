@@ -5,6 +5,77 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?' + API_KEY;
 const getGenres = BASE_URL + '/genre/movie/list' + API_KEY;
 
+const genres = {genres: [{"id":28,"name":"Action"},
+                {"id":12,"name":"Adventure"},
+                {"id":16,"name":"Animation"},
+                {"id":35,"name":"Comedy"},
+                {"id":80,"name":"Crime"},
+                {"id":99,"name":"Documentary"},
+                {"id":18,"name":"Drama"},
+                {"id":10751,"name":"Family"},
+                {"id":14,"name":"Fantasy"},
+                {"id":36,"name":"History"},
+                {"id":27,"name":"Horror"},
+                {"id":10402,"name":"Music"},
+                {"id":9648,"name":"Mystery"},
+                {"id":10749,"name":"Romance"},
+                {"id":878,"name":"Science Fiction"},
+                {"id":10770,"name":"TV Movie"},
+                {"id":53,"name":"Thriller"},
+                {"id":10752,"name":"War"},
+                {"id":37,"name":"Western"}
+              ]};
+
+function genreList(genre_ids){
+  const genreName = [];
+  for (const id of genre_ids) {
+    switch(id){
+      case 28: genreName.push(" Action");
+        break;
+      case 12: genreName.push(" Adventure");
+        break;   
+      case 16: genreName.push(" Animation") ;
+        break;   
+      case 35: genreName.push(" Comedy");
+        break;      
+      case 80: genreName.push(" Crime");
+        break;   
+      case 99: genreName.push(" Documentary");
+        break;      
+      case 18: genreName.push(" Drama");
+        break;      
+      case 10751: genreName.push(" Family");
+        break;     
+      case 14: genreName.push(" Fantasy");
+        break;      
+      case 36: genreName.push(" History");
+        break;      
+      case 27: genreName.push(" Horror");
+        break;      
+      case 10402: genreName.push(" Music");
+        break;     
+      case 9648: genreName.push(" Mystery");
+        break;      
+      case 10749: genreName.push(" Romance");
+        break;     
+      case 878: genreName.push(" Science Fiction");
+        break;     
+      case 10770: genreName.push(" TV Movie");
+        break;     
+      case 53: genreName.push(" Thriller");
+        break;      
+      case 10752: genreName.push(" War");
+        break;     
+      case 37: genreName.push(" Western");
+        break;      
+      default:
+        return;
+    }
+  }
+
+  console.log(genreName)
+  return genreName;
+}
 
 const options = {
   params: {
@@ -157,11 +228,8 @@ function showMovies(data) {
             <div class="movie-info">
                 <h3>${title.toUpperCase()}</h3>
                 <div class="movie-details">
-                    <span id="genre" class="${genre_ids}">${genre_ids}</span> |
-                    <span id="release_date" class="${release_date}">${release_date.slice(
-      0,
-      4
-    )}</span>
+                    <span id="genre" class="${genre_ids}">${genreList(genre_ids)}</span> |
+                    <span id="release_date" class="${release_date}">${release_date.slice(0,4)}</span>
                 </div>
             </div>        
         `;
