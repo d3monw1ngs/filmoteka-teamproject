@@ -28,7 +28,7 @@ fetch(getGenres)
     .then(data => {
         genres = data.genres;
       getMovies(API_URL, genres); // Call getMovies with genres
-      showMovies(data, genres)
+      showMovies(data, genres);
     })
     .catch(error => {
         // console.error('Error fetching genres:', error);
@@ -71,8 +71,8 @@ fetch(getGenres)
   let lastUrl;
   getMovies(API_URL);
   // DISPLAY MOVIE CARDS
-  function getMovies(url) {
-    lastUrl = url;
+function getMovies(url) {
+  lastUrl = url;
     main.classList.toggle('is-hidden');
     loader.classList.toggle('is-hidden');
     fetch(url)
@@ -81,27 +81,13 @@ fetch(getGenres)
         console.log(data.results);
         if (data.results.length !== 0) {
           showMovies(data.results);
-          // currentPage = data.page;
-          // nextPage = currentPage + 1;
-          // prevPage = currentPage - 1;
-          // totalPages = data.total_pages;
-          // main.classList.toggle('is-hidden');
-          // loader.classList.toggle('is-hidden');
-          // current.innerText = currentPage;
-        //   if (currentPage <= 1) {
-        //     prev.classList.add('disabled');
-        //     next.classList.remove('disabled');
-        //   } else if (currentPage >= totalPages) {
-        //     prev.classList.remove('disabled');
-        //     next.classList.add('disabled');
-        //   } else {
-        //     prev.classList.remove('disabled');
-        //     next.classList.remove('disabled');
-        //   }
-        // } else {
-        //   main.classList.toggle('is-hidden');
-        //   loader.classList.toggle('is-hidden');
-        //   main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
+          currentPage = data.page;
+          main.classList.toggle('is-hidden');
+          loader.classList.toggle('is-hidden');
+        } else {
+          main.classList.toggle('is-hidden');
+          loader.classList.toggle('is-hidden');
+          main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
         }
       });
   }
@@ -168,6 +154,7 @@ function showMovies(data) {
     if (key[0] != 'page') {
       let url = lastUrl + '&page=' + page;
       getMovies(url);
+      console.log('first');
     } else {
       key[1] = page.toString();
       let a = key.join('=');
