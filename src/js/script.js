@@ -149,12 +149,8 @@ function showMovies(data) {
             <div class="movie-info">
                 <h3>${title.toUpperCase()}</h3>
                 <div class="movie-details">
-                <span id="genre">${movieGenres}</span> |
-                <span id="release_date" class="${release_date}">${release_date.slice(
-                  0,
-                  4
-                  )}</span>
-                  </div>
+                <div>${movieGenres} | ${release_date.slice(0,4)}</div>
+                </div>
                   </div>
                   `;
                   movieEl.addEventListener('click', function () {
