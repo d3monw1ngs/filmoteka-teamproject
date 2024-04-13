@@ -18,6 +18,9 @@ function generatePaginationButtons(currentPage) {
     if(startPage % 2 === 0) {
       startPage -= 1;
     }
+    if (startPage < 1) {
+      startPage = 1;
+    }
   }
 
   if (startPage > 1) {
