@@ -65,7 +65,6 @@ fetch(getGenres)
   const main = document.getElementById('main');
   const form = document.getElementById('search-form');
   const search = document.getElementById('search-input');
-  const galleryEl = document.getElementById('gallery');
   const loader = document.querySelector('.loader-container');
   // PAGINATION
   let lastUrl;
