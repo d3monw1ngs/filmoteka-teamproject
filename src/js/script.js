@@ -87,7 +87,7 @@ fetch(getGenres)
           totalPages = data.total_pages;
           main.classList.toggle('is-hidden');
           loader.classList.toggle('is-hidden');
-          document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', function () {
             const current = document.getElementById('current');
             current.innerText = currentPage;
           })
