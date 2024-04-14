@@ -8,20 +8,18 @@ function generatePaginationButtons(currentPage) {
   let buttonsHTML = '';
   const numButtonsToShow = 5; // Number of pagination buttons to show
 
-  let startPage = 1;
-  if (currentPage <= 3) {
-    startPage = 1;
-  } else if (currentPage >= totalPages - 1) {
-    startPage = totalPages - numButtonsToShow + 1;
-  } else {
-    startPage = currentPage - 2;
-    if(startPage % 2 === 0) {
-      startPage -= 1;
-    }
-    if (startPage < 1) {
-      startPage = 1;
-    }
+let startPage;
+if (currentPage < 4) {
+  startPage = 1;
+  if (currentPage != 1) {
+    buttonsHTML += `<button class="pagination-button previous-page" 
+    type="submit" id="prev">&#11164</button>`;
   }
+} else if (currentPage >= totalPages - 2) {
+  startPage = totalPages - numButtonsToShow + 1;
+} else {
+  startPage = currentPage -2;
+}
 
   if (startPage > 1) {
     buttonsHTML += `<button class="pagination-button previous-page" type="submit" id="prev">&#11164</button>`;

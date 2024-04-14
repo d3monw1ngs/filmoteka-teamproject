@@ -76,7 +76,6 @@ fetch(getGenres)
     lastUrl = url;
     main.classList.toggle('is-hidden');
     loader.classList.toggle('is-hidden');
-    
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -84,51 +83,48 @@ fetch(getGenres)
         if (data.results.length !== 0) {
           showMovies(data.results);
           currentPage = data.page;
-          nextPage = currentPage + 1;
-          prevPage = currentPage - 1;
-          totalPages = data.total_pages;
           main.classList.toggle('is-hidden');
           loader.classList.toggle('is-hidden');
-      document.addEventListener('DOMContentLoaded', function () {
-            const current = document.getElementById('current');
-            current.innerText = currentPage;
-          })
-            if (currentPage <= 1) {
-            if (prev)  prev.classList.add('disabled');
-            if (next) next.classList.remove('disabled');
-            } else if (currentPage >= totalPages) {
-            if (prev)  prev.classList.remove('disabled');
-            if (next)  next.classList.add('disabled');
-            } else {
-             if (prev)  prev.classList.remove('disabled');
-             if (next)  next.classList.remove('disabled');
-          }
+      // document.addEventListener('DOMContentLoaded', function () {
+      //       const current = document.getElementById('current');
+      //       current.innerText = currentPage;
+      //     })
+      //       if (currentPage <= 1) {
+      //       if (prev)  prev.classList.add('disabled');
+      //       if (next) next.classList.remove('disabled');
+      //       } else if (currentPage >= totalPages) {
+      //       if (prev)  prev.classList.remove('disabled');
+      //       if (next)  next.classList.add('disabled');
+      //       } else {
+      //        if (prev)  prev.classList.remove('disabled');
+      //        if (next)  next.classList.remove('disabled');
+      //     }
           } else {
             main.classList.toggle('is-hidden');
             loader.classList.toggle('is-hidden');
             main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
           }
-       }
-    )};
+       });
+  }
 // Add event listeners for prev and next inside this block
-    prev = document.getElementById('prev');
-    next = document.getElementById('next');
+    // prev = document.getElementById('prev');
+    // next = document.getElementById('next');
 // function for previous page
-if (prev) {
-prev.addEventListener('click', () => {
-if (prevPage > 0) {
-  pageCall(prevPage);
-}
-});
-}
-    // function for the next page
-if (next) {
-next.addEventListener('click', () => {
-if (nextPage <= totalPages) {
-  pageCall(nextPage);
-}
-});
-}
+// if (prev) {
+// prev.addEventListener('click', () => {
+// if (prevPage > 0) {
+//   pageCall(prevPage);
+// }
+// });
+// }
+//     // function for the next page
+// if (next) {
+// next.addEventListener('click', () => {
+// if (nextPage <= totalPages) {
+//   pageCall(nextPage);
+// }
+// });
+// }
 function showMovies(data) {
     main.innerHTML = '';
     data.forEach(movie => {
