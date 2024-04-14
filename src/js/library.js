@@ -108,3 +108,7 @@ getMovies(API_URL);
 function getMovies(url) {
     lastUrl = url;
 }
+
+function openModalFromLibrary() {
+    openModal();
+}
