@@ -18,9 +18,8 @@ if (currentPage < 4) {
 } else if (currentPage >= totalPages - 2) {
   startPage = totalPages - numButtonsToShow + 1;
 } else {
-  startPage = currentPage -2;
+  startPage = currentPage - 2;
 }
-
   if (startPage > 1) {
     buttonsHTML += `<button class="pagination-button previous-page" type="submit" id="prev">&#11164</button>`;
     buttonsHTML += `<button class="pagination-button" type="submit">1</button>`;

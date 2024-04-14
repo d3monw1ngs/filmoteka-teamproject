@@ -19,7 +19,6 @@ const options = {
   },
 };
 
-
 const form = document.getElementById('lib-buttons');
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -81,11 +80,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Creation of single movie display
     function createMovieElement(movie) {
+        
         const element = document.createElement('div');
         element.classList.add('movie');
         element.innerHTML = `
             <img src="${movie.poster_path ? IMG_URL + movie.poster_path : 'http://via.placeholder.com/1080x1500'}" alt="${movie.title}">
-            <h3>${movie.title}</h3>
+            <h3>${movie.title}</h3> 
+            <div class="lib-movie-details">
+                <div class="lib-info"> | <span>${movie.release_date.slice(0,4)}</span></div>
+                <div><span class="avg">${movie.vote_average}</span></div>
+            </div>          
         `;
 
         return element;

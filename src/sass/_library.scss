@@ -236,6 +236,30 @@ main {
     font-weight: 600;
 }
 
+.gallery {
+    display: flex;
+}
+
+.lib-info{
+    color: orange;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.avg {
+    background-color: orange;
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.lib-movie-details {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 @media screen and (min-width: 768px) {
     .header-top-left {
         padding-left: 80px;
@@ -262,50 +286,6 @@ main {
     padding: 0;
 }
 
-// body {
-//     font-family: 'Arial', sans-serif;
-//     background-color: #f4f4f4;
-//     color: #333;
-//     line-height: 1.6;
-//     padding: 20px;
-// }
-
-// .watchedmovies {
-//     margin: auto;
-//     width: 80%;
-//     background: #fff;
-//     padding: 20px;
-//     border-radius: 8px;
-//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-// }
-
-// .movies-list {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-//     gap: 20px;
-// }
-
-// .movies-list {
-//     background: #eee;
-//     border-radius: 8px;
-//     padding: 10px;
-//     box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
-// }
-
-// .button-with-heading {
-//     background-color: transparent;
-//     border: none;
-//     padding: 10px;
-
-// }
-
-// .heading-text {
-//     font-size: 1.5rem;
-//     font-weight: bold;
-
-// }
-
 .button-with-heading {
     margin: 10px;
     padding: 10px;
@@ -327,7 +307,6 @@ main {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-
 
 /* Adjustments for small screens */
 @media screen and (max-width: 600px) {

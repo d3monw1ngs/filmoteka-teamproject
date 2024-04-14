@@ -41,7 +41,7 @@ fetch(getGenres)
       <span class="vote-avg">${movie.vote_average.toFixed(1)}</span>` + '   /   ' + movie.vote_count;
     modalPopularity.textContent = movie.popularity.toFixed(1);
     modalOrigTitle.textContent = movie.original_title.toUpperCase();
-    // modalGenre.textContent = movie.genre;
+
     const movieGenres = movie.genre_ids.map(genreId => {
         const genre = genres.find(genre => genre.id === genreId);
         return genre ? genre.name : '';
@@ -90,11 +90,7 @@ const next = document.getElementById('next');
           main.classList.toggle('is-hidden');
           loader.classList.toggle('is-hidden');
           updatePaginationButtons(); // Update pagination buttons
-      // document.addEventListener('DOMContentLoaded', function () {
-      //       const current = document.getElementById('current');
-      //       current.innerText = currentPage;
-      //     })
-           }else {
+        }else {
             main.classList.toggle('is-hidden');
             loader.classList.toggle('is-hidden');
             main.innerHTML = `<h1 class="no-results">No Results Found</h1>`;
