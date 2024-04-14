@@ -60,51 +60,15 @@
     </main>
 
     <!-- PAGINATION SECTION -->
-    <div class="pagination">
-
-        <button class="pagination-button previous-page" type="submit">&#11164</button>
-        <button class="pagination-button first-page" type="submit">...</button>
-        <button class="pagination-button button-a" type="submit">1</button>
-        <button class="pagination-button button-b" type="submit">2</button>
-        <button class="pagination-button button-c" type="submit">3</button>
-        <button class="pagination-button button-d" type="submit">4</button>
-        <button class="pagination-button button-e" type="submit">5</button>
-        <button class="pagination-button last-page" type="submit">...</button>
-        <button class="pagination-button next-page" type="submit">&#11166</button>
-
-    </div>
+   <include src="partials/pagination.html"></include>
 
     <!-- Modal Section -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-body">
-                <img class="modal-poster" id="modal-poster" src="/src/images/Rectangle 18.jpg" alt="title">
-                <div id="modal-details">
-                    <h2 id="modal-title">A FISTFUL OF LEAD</h2>
-                    <p id="modal-vote">Vote/Votes:</p>
-                    <p id="modal-popularity">Popularity:</p>
-                    <p id="modal-original-title">Title:</p>
-                    <p id="modal-genre">Genre:</p>
-                    <h3>About</h3>
-                    <p id="modal-overview">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat provident
-                        illo, tempore doloribus culpa dolores repellat, laborum aperiam quasi, officiis beatae quas!
-                        Quaerat, s
-                        int blanditiis facilis alias ad tenetur pariatur.</p>
-                    <div class="modal-buttons">
-                        <button id="addToWatchedBtn">Add to Watched</button>
-                        <button id="addToQueuBtn">Add to Queue</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+  
 
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <!-- <include src="partials/modal.html"></include> -->
     <include src="partials/task4_footer.html"></include>
-
+    <script src="/src/js/pagination.js" type="module"></script>
     <script src="/src/js/library.js" type="module"></script>
     <script src="/src/js/script.js" type="module"></script>
 
