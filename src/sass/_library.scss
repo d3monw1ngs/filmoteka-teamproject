@@ -238,6 +238,7 @@ main {
 
 .gallery {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .lib-info{
