@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+let lastUrl;
+
 getMovies(API_URL);
 
 // DISPLAY MOVIE CARDS
