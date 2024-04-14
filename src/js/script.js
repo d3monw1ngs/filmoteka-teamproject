@@ -49,6 +49,8 @@ fetch(getGenres)
     modalGenre.textContent = movieGenres;
     modalOverview.textContent = movie.overview;
     modal.style.display = 'block';
+    currentMovieID = movie.id;
+    currentMovieTitle = movie.title;
   }
   // function to close the modal
   function closeModal() {
@@ -195,26 +197,6 @@ function showMovies(data) {
       getMovies(url);
     }
   }
-  //Clicking a movie
-  main.addEventListener('click', e => {
-    let currentMovie = e.target.parentElement;
-    currentMovieTitle = currentMovie.lastElementChild.firstElementChild.innerText;
-    console.log(currentMovieTitle);
-  });
-  //Add to Watched (localStorage)
-  addToWatchedBtn.addEventListener('click', () => {
-    watched.includes(currentMovieTitle)
-      ? alert(`${currentMovieTitle} has been watched already`)
-      : watched.push(currentMovieTitle);
-    localStorage.setItem('movie-watched', JSON.stringify(watched));
-  });
-  //Add to Queue (localStorage)
-  addToQueuBtn.addEventListener('click', () => {
-    queue.includes(currentMovieTitle)
-      ? alert(`${currentMovieTitle} has been added to the queue already`)
-      : queue.push(currentMovieTitle);
-    localStorage.setItem('movie-queue', JSON.stringify(queue));
-  });
   //Add to Watched (localStorage)
   addToWatchedBtn.addEventListener('click', () => {
     watched.includes(currentMovieID) ?
