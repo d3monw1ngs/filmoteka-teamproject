@@ -80,14 +80,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Creation of single movie display
     function createMovieElement(movie) {
-        
+        // fetching genre list
+        const genreList = movies => {
+            const genres = [];
+            movies.genres.map(genre => genres.push(genre.name));
+            return genres;
+        }
+
         const element = document.createElement('div');
         element.classList.add('movie');
         element.innerHTML = `
             <img src="${movie.poster_path ? IMG_URL + movie.poster_path : 'http://via.placeholder.com/1080x1500'}" alt="${movie.title}">
             <h3>${movie.title}</h3> 
             <div class="lib-movie-details">
-                <div class="lib-info"> | <span>${movie.release_date.slice(0,4)}</span></div>
+                <div class="lib-info"><span class="lib-genre">${genreList(movie)}</span> | <span>${movie.release_date.slice(0,4)}</span></div>
                 <div><span class="avg">${movie.vote_average}</span></div>
             </div>          
         `;
